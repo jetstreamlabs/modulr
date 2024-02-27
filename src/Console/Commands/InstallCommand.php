@@ -384,7 +384,7 @@ class InstallCommand extends Command
   /**
    * Create a process to return to the various methods and for testing.
    *
-   * @param  array $command
+   * @param  array  $command
    * @return Process
    */
   public function createProcess(array $command): Process

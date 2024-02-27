@@ -1,21 +1,20 @@
-# `zuma/modulize`
+# `serenity/modulr`
 
-`zuma/modulize` is a module system for Laravel applications. It uses [Composer path repositories](https://getcomposer.org/doc/05-repositories.md#path) for autoloading, and [Laravel package discovery](https://laravel.com/docs/7.x/packages#package-discovery) for module initialization, and then provides minimal tooling to fill in any gaps.
+`serenity/modulr` is a module system for Laravel applications. It uses [Composer path repositories](https://getcomposer.org/doc/05-repositories.md#path) for autoloading, and [Laravel package discovery](https://laravel.com/docs/7.x/packages#package-discovery) for module initialization, and then provides minimal tooling to fill in any gaps.
 
-Modulize is a reworking of [InterNACHI/modular](https://github.com/InterNACHI/modular) and expands on a few concepts like modulizing existing composer packages with ease using our `moduals:install` command. Being able to bring packages into your app that are normally out of range in the vendor folder gives you a huge amount of flexibility, without the added burden of having to maintain your own package.
+Modulr is a reworking of [InterNACHI/modular](https://github.com/InterNACHI/modular) and expands on a few concepts like modulizing existing composer packages with ease using our `modules:install` command. Being able to bring packages into your app that are normally out of range in the vendor folder gives you a huge amount of flexibility, without the added burden of having to maintain your own package.
 
-This project is as much a set of conventions as it is a package. The fundamental idea is that you can create “modules” in a separate `modules/` directory, which allows you to better organize large projects. These modules use the existing [Laravel package system](https://laravel.com/docs/7.x/packages), and follow existing Laravel conventions.
+This project is as much a set of conventions as it is a package. The fundamental idea is that you can create “modules” in a separate `modules/` directory, which allows you to better organize large projects. These modules use the existing [Laravel package system](https://laravel.com/docs/10.x/packages), and follow existing Laravel conventions.
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Comparison to `nwidart/laravel-modules`](#comparison-to-nwidartlaravel-modules)
 
 ## Installation
 
 To get started, run:
 
 ```bash
-composer require zuma/modulize
+composer require serenity/modulr
 ```
 
 Laravel will auto-discover the package and everything will be automatically set up for you.
@@ -26,11 +25,11 @@ While not required, it's highly recommended that you customize your default name
 for modules. By default, this is set to `Modules\`, which works just fine but makes it
 harder to extract your module to a separate package should you ever choose to.
 
-We recommend configuring a organization namespace (we use `"Zuma"`, for example).
+We recommend configuring an organization namespace (we use `"Serenity"`, for example).
 To do this, you'll need to publish the package config:
 
 ```bash
-php artisan vendor:publish --tag=modulize-config
+php artisan vendor:publish --tag=modulr-config
 ```
 
 ### Create a module
@@ -41,7 +40,7 @@ Next, let's create a module:
 php artisan modules:make companies
 ```
 
-Modulize will scaffold up a new module for you:
+Modulr will scaffold up a new module for you:
 
 ```
 modules/
@@ -57,7 +56,7 @@ modules/
 It will also add two new entries to your app's `composer.json` file. The first entry registers
 `./modules/companies/` as a [path repository](https://getcomposer.org/doc/05-repositories.md#path), and the second requires `modules/companies:*` (like any other Composer dependency).
 
-Modulize will then remind you to perform a Composer update, so let's do that now:
+Modulr will then remind you to perform a Composer update, so let's do that now:
 
 ```bash
 composer update modules/companies
@@ -161,7 +160,7 @@ A few examples:
 
 #### Customizing the Default Module Structure
 
-When you call `modules:make`, Modulize will scaffold some basic boilerplate for you. If you
+When you call `modules:make`, Modulr will scaffold some basic boilerplate for you. If you
 would like to customize this behavior, you can do so by publishing the `modules.php`
 config file and adding your own stubs.
 
@@ -178,18 +177,3 @@ Both filenames and file contents support a number of placeholders. These include
 - `StubMigrationPrefix`
 - `StubFullyQualifiedTestCaseBase`
 - `StubTestCaseBase`
-
-## Comparison to `nwidart/laravel-modules`
-
-[Laravel Modules](https://nwidart.com/laravel-modules) is a great package that’s been
-around since 2016 and is used by 1000's of projects. The main reason we decided to build
-our own module system rather than using `laravel-modules` comes down to two decisions:
-
-1. We wanted something that followed Laravel conventions rather than using its own directory structure/etc.
-2. We wanted something that felt “lighter weight”
-
-If you are building a CMS that needs to support 3rd-party modules that can be dynamically
-enabled and disabled, Laravel Modules will be a better fit.
-
-On the other hand, if you're mostly interested in modules for organization, and want to
-stick closely to Laravel conventions, we’d highly recommend giving Zuma/Modulize a try!

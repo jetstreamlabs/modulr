@@ -5,8 +5,6 @@ use Illuminate\Filesystem\Filesystem;
 use Serenity\Modulr\Console\Commands\InstallCommand;
 use Serenity\Modulr\Support\Registry;
 use Symfony\Component\Console\Formatter\OutputFormatter;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Process\Process;
 
 beforeEach(function () {
   $this->installer = new ReflectionClass(InstallCommand::class);

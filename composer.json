@@ -1,11 +1,10 @@
 {
   "name": "serenity/modulr",
-  "description": "Modulize your Laravel apps",
+  "description": "Turn your Laravel applications modular with Modulr!",
   "keywords": [
     "laravel",
     "modules",
-    "modulize",
-    "module"
+    "modulr"
   ],
   "authors": [
     {
@@ -24,12 +23,11 @@
     "ext-simplexml": "*",
     "ext-dom": "*",
     "composer/composer": "^2.6.6",
-    "illuminate/support": "^9|^10|11.x-dev|dev-master"
+    "illuminate/support": "^10|11.x-dev|dev-master"
   },
   "require-dev": {
-    "orchestra/testbench": "^7.10|^8|8.x-dev|9.x-dev|dev-master",
+    "orchestra/testbench": "^8.21",
     "mockery/mockery": "^1.6.7",
-    "phpunit/phpunit": "^10.5.9",
     "ext-json": "*",
     "jetstreamlabs/pinte": "^1.1.0",
     "pestphp/pest": "^2.32",

@@ -80,7 +80,7 @@ const releaseNotesGeneratorOptions = {
 export default {
   debug: true,
   branches: ['+([0-9])?(.{+([0-9]),x}).x', 'main'],
-  repositoryUrl: 'https://github.com/zumacore/modulize',
+  repositoryUrl: 'https://github.com/jetstreamlabs/modulr',
 
   plugins: [
     ['@semantic-release/commit-analyzer', commitAnalyzerOptions],
