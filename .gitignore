@@ -5,6 +5,7 @@
 .php-cs-fixer.cache
 .composer-history
 
+/.vscode
 /vendor
 /node_modules
 
