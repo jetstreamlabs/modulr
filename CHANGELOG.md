@@ -1,5 +1,12 @@
 # Release Notes
 
+## [1.0.1](https://github.com/jetstreamlabs/modulr/compare/v1.0.0...v1.0.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* bugs in gitattributes ([3dceff4](https://github.com/jetstreamlabs/modulr/commit/3dceff48b16339e9699ffb4552d5d6034d296582))
+
 # 1.0.0 (2024-02-27)
 
 
