@@ -2,9 +2,8 @@
   "private": true,
   "scripts": {
     "pinte": "./vendor/bin/pinte",
-    "fix": "bunx lint-staged",
-    "cn": "composer update && bun update",
-    "prepare": "husky"
+    "fix": "npx lint-staged",
+    "cn": "composer update && npm update"
   },
   "type": "module",
   "devDependencies": {
